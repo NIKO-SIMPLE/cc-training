@@ -37,10 +37,11 @@ int main( int argc, char *argv[] )
   while ( true ) {
     const UDPSocket::received_datagram recd = socket.recv();
     ContestMessage message = recd.payload;
+    cout<< "Before transform:" << static_cast<unsigned int>(message.header.type) << endl;
 
     /* assemble the acknowledgment */
     message.transform_into_ack( sequence_number++, recd.timestamp );
-
+    cout<< "After transform:" << static_cast<unsigned int>(message.header.type) << endl;
     /* timestamp the ack just before sending */
     message.set_send_timestamp();
 
