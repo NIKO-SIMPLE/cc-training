@@ -59,6 +59,7 @@ void Controller::ack_received( const uint64_t sequence_number_acked,
 	 << ", received @ time " << recv_timestamp_acked << " by receiver's clock)"
 	 << endl;
   }
+  cout<<"num_acked:"<<sequence_number_acked<<endl;
 }
 
 /* How long to wait (in milliseconds) if there are no acks
